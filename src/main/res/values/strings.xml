@@ -1,0 +1,34 @@
+<resources>
+    <string name="app_name">MarketList</string>
+    <string name="btn_adiciona_item">Adicionar item</string>
+    <string name="btn_cria_item">Criar item</string>
+    <string name="btn_pesquisa_internet">Pesquisar</string>
+    <string name="criador">Rômulo Basso Krebs</string>
+    <string name="itemTextLabel">Item</string>
+    <string name="editObservacaoLabel">Editar observação</string>
+    <string name="spinnerQuantidadeItemLabel">Alterar quantidade</string>
+    <string name="checkExcluir">Deletar item</string>
+    <string name="btnSalvar">Salvar</string>
+    <string name="nome_disciplina">Programação para Web III – APNP 2020</string>
+    <string name="pergunta_pesquisa">Será que não falta nada para sua dieta?</string>
+    <string name="pesquisa_dieta">Pesquisar dietas</string>
+
+    <string-array name="itensSpinner">
+        <item>Low Carb</item>
+        <item>Mediterrânea</item>
+        <item>Açucar é o que amo</item>
+        <item>Reeducação</item>
+    </string-array>
+    <string-array name="qtdSpinner">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+    </string-array>
+</resources>
