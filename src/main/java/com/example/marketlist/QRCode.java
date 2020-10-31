@@ -21,6 +21,11 @@ import me.dm7.barcodescanner.zxing.ZXingScannerView;
 
 public class QRCode extends AppCompatActivity implements ZXingScannerView.ResultHandler {
 
+    /*Nesta classe a única função 'visível' é o intent
+    No Logcat é possível ver a URL do QRCode
+    Ainda vou implementar a classe Crawler para copiar os dados
+     */
+
     private ZXingScannerView scannerView;
 
     @Override
