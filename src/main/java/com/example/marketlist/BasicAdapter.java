@@ -36,7 +36,6 @@ public class BasicAdapter extends RecyclerView.Adapter<BasicAdapter.ViewHolder> 
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int position) {
 
         ListaProvisoria listaProvisoria = listaItens.get(position);
-        System.out.println(listaProvisoria.getNomeProduto());
         viewHolder.nomeProduto.setText(listaProvisoria.getNomeProduto());
         viewHolder.quantidade.setText(String.valueOf(listaProvisoria.getQuantidade()));
         viewHolder.observacao.setText(listaProvisoria.getObservacoes());
@@ -44,7 +43,8 @@ public class BasicAdapter extends RecyclerView.Adapter<BasicAdapter.ViewHolder> 
 
     @Override
     public int getItemCount() {
-        return 0;
+
+        return listaItens != null? listaItens.size() : 0;
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{

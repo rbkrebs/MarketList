@@ -56,13 +56,11 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(context, AlteraItemCompra.class);
-                System.out.println(listaItens.get(position).getNomeProduto());
-                System.out.println(listaItens.get(position).getObservacoes());
-                System.out.println(listaItens.get(position).getQuantidade());
 
                 intent.putExtra("itemText", listaItens.get(position).getNomeProduto());
                 intent.putExtra("editObservacao", listaItens.get(position).getObservacoes());
                 intent.putExtra("spinnerQuantidadeItem", listaItens.get(position).getQuantidade());
+                //tive que implementar essa flag para contornar um erro!
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 context.startActivity(intent);
             }

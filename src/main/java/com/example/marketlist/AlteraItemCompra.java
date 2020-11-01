@@ -42,19 +42,7 @@ public class AlteraItemCompra extends AppCompatActivity implements AdapterView.O
 
     }
 
-    public void onCheckBoxClicked(View view) {
 
-        boolean checked = ((CheckBox) view).isChecked();
-
-        switch(view.getId()){
-            case R.id.checkExcluir:
-                if(checked)
-                    Toast.makeText(AlteraItemCompra.this,
-                            "Este item será excluído da lista", Toast.LENGTH_SHORT).show();
-                break;
-        }
-
-    }
 
     public void onBtnSalvarClicked(View view) {
 

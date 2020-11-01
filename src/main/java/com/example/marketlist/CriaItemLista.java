@@ -11,6 +11,9 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.material.textfield.TextInputEditText;
+import com.google.android.material.textfield.TextInputLayout;
+
 public class CriaItemLista extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
 
 
@@ -21,8 +24,10 @@ public class CriaItemLista extends AppCompatActivity implements AdapterView.OnIt
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cria_item_lista);
-        EditText itemText = findViewById(R.id.criaItem);
-        EditText editObservacao = findViewById(R.id.criaeditObservacao);
+        TextInputLayout criaitemTextLabel = findViewById(R.id.criaitemTextLabel);
+        TextInputEditText itemText = findViewById(R.id.criaItem);
+        TextInputLayout criaObservacaoLabel = findViewById(R.id.criaObservacaoLabel);
+        TextInputEditText editObservacao = findViewById(R.id.criaObservacao);
         Spinner spinner = findViewById(R.id.pesquisarInternet);
         spinner.setSelection(0,false);
         spinner.setOnItemSelectedListener(this);

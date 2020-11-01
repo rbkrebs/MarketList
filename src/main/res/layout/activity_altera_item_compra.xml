@@ -80,18 +80,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.578" />
 
-    <CheckBox
-        android:id="@+id/checkExcluir"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="onCheckBoxClicked"
-        android:text="@string/checkExcluir"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.069"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.718" />
+
 
     <Button
         android:id="@+id/btnSalvar"
@@ -99,6 +88,7 @@
         android:layout_height="wrap_content"
         android:onClick="onBtnSalvarClicked"
         android:text="@string/btnSalvar"
+        style="@style/botao"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
