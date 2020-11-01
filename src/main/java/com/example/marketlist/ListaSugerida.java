@@ -32,7 +32,7 @@ public class ListaSugerida extends AppCompatActivity {
 
         listaMercado = findViewById(R.id.lista_sugerida);
 
-        Adapter adapter = new Adapter(ListaProvisoria.criaLista());
+        BasicAdapter adapter = new BasicAdapter(ListaProvisoria.criaLista());
         listaMercado.setAdapter(adapter);
         listaMercado.setHasFixedSize(true);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());

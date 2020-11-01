@@ -29,7 +29,7 @@ public class ListaMercado extends AppCompatActivity{
         listaMercado = findViewById(R.id.lista_mercado);
 
 
-        Adapter adapter = new Adapter(ListaProvisoria.criaLista());
+        Adapter adapter = new Adapter(ListaProvisoria.criaLista(), getApplicationContext());
         listaMercado.setAdapter(adapter);
         listaMercado.setHasFixedSize(true);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
