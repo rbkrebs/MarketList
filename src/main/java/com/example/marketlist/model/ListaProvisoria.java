@@ -1,4 +1,7 @@
-package com.example.marketlist;
+package com.example.marketlist.model;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class ListaProvisoria {
 
@@ -40,20 +43,21 @@ public class ListaProvisoria {
         this.observacoes = observacoes;
     }
 
-    public static ListaProvisoria lista[] = {
+    public static List<ListaProvisoria> criaLista(){
 
-            new ListaProvisoria(
-                    1, "Banana","caturra madura"
-            ),
-            new ListaProvisoria(
-                    3, "Maçãs","pega as vermelhas"
-            ),
-            new ListaProvisoria(
-                    1, "Ovos","pega os vermelhos"
-            ),
-            new ListaProvisoria(
-                    1, "Massa integral","marca Isabela"
-            )
+        List<ListaProvisoria> lista = new ArrayList();
+
+        lista.add(new ListaProvisoria(
+                1, "Banana","caturra madura"
+        ));
+        lista.add(new ListaProvisoria(
+                1, "Massa integral","marca Isabela"
+        ));
+        lista.add(new ListaProvisoria(
+                3, "Maçãs","pega as vermelhas"
+        ));
+
+        return lista;
     };
 
     @Override

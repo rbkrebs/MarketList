@@ -1,6 +1,8 @@
 package com.example.marketlist;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,13 +10,16 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.ListView;
 
-public class ListaMercado extends AppCompatActivity implements AdapterView.OnItemClickListener{
+import com.example.marketlist.model.ListaProvisoria;
 
-    private ListView listaMercado;
+import java.util.List;
+
+public class ListaMercado extends AppCompatActivity{
+
+    private RecyclerView listaMercado;
     private Button adicionaItem;
-    ListaProvisoria[] listaProvisorias = ListaProvisoria.lista;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,11 +28,13 @@ public class ListaMercado extends AppCompatActivity implements AdapterView.OnIte
 
         listaMercado = findViewById(R.id.lista_mercado);
 
-        ArrayAdapter<ListaProvisoria> listaAdapter = new ArrayAdapter(this,
-                android.R.layout.simple_list_item_1,
-                listaProvisorias);
-        listaMercado.setAdapter(listaAdapter);
-        listaMercado.setOnItemClickListener(this);
+
+        Adapter adapter = new Adapter(ListaProvisoria.criaLista());
+        listaMercado.setAdapter(adapter);
+        listaMercado.setHasFixedSize(true);
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
+        listaMercado.setLayoutManager(layoutManager);
+
 
         adicionaItem = findViewById(R.id.adiciona_item);
         adicionaItem.setOnClickListener(new View.OnClickListener() {
@@ -42,14 +49,5 @@ public class ListaMercado extends AppCompatActivity implements AdapterView.OnIte
 
     }
 
-    @Override
-    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-            Intent intent = new Intent(this, AlteraItemCompra.class);
-            intent.putExtra("itemText", listaProvisorias[position].getNomeProduto());
-            intent.putExtra("editObservacao", listaProvisorias[position].getObservacoes());
-            intent.putExtra("spinnerQuantidadeItem", listaProvisorias[position].getQuantidade());
-            startActivity(intent);
-
-    }
 }
