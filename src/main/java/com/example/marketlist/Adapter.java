@@ -10,8 +10,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.marketlist.model.ListaProvisoria;
 
-import org.w3c.dom.Text;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -37,8 +35,9 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
     public void onBindViewHolder(@NonNull Adapter.ViewHolder viewHolder, int position) {
 
         ListaProvisoria listaProvisoria = listaItens.get(position);
+        System.out.println(listaProvisoria.getNomeProduto());
         viewHolder.nomeProduto.setText(listaProvisoria.getNomeProduto());
-        viewHolder.quantidade.setText(listaProvisoria.getQuantidade());
+        viewHolder.quantidade.setText(String.valueOf(listaProvisoria.getQuantidade()));
         viewHolder.observacao.setText(listaProvisoria.getObservacoes());
 
 

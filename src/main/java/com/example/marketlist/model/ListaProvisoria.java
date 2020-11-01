@@ -56,6 +56,24 @@ public class ListaProvisoria {
         lista.add(new ListaProvisoria(
                 3, "Maçãs","pega as vermelhas"
         ));
+        lista.add(new ListaProvisoria(
+                1, "Feijão","pega o da marca X"
+        ));
+        lista.add(new ListaProvisoria(
+                1, "Arroz integral",""
+        ));
+        lista.add(new ListaProvisoria(
+                3, "Limão",""
+        ));
+        lista.add(new ListaProvisoria(
+                1, "Amaciante","pega um com desenho de urso"
+        ));
+        lista.add(new ListaProvisoria(
+                1, "Sabão Líquido","Ariel"
+        ));
+        lista.add(new ListaProvisoria(
+                3, "Bolacha Integral","olha o primeiro ingradiente"
+        ));
 
         return lista;
     };
