@@ -5,18 +5,23 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 
 public class CriaItemLista extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
 
-
+    private TextInputLayout criaitemTextLabel;
+    private TextInputEditText itemText;
+    private TextInputLayout criaObservacaoLabel;
+    private TextInputEditText editObservacao;
 
 
 
@@ -24,13 +29,40 @@ public class CriaItemLista extends AppCompatActivity implements AdapterView.OnIt
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cria_item_lista);
-        TextInputLayout criaitemTextLabel = findViewById(R.id.criaitemTextLabel);
-        TextInputEditText itemText = findViewById(R.id.criaItem);
-        TextInputLayout criaObservacaoLabel = findViewById(R.id.criaObservacaoLabel);
-        TextInputEditText editObservacao = findViewById(R.id.criaObservacao);
+        criaitemTextLabel = findViewById(R.id.criaitemTextLabel);
+        itemText = findViewById(R.id.criaItem);
+        criaObservacaoLabel = findViewById(R.id.criaObservacaoLabel);
+        editObservacao = findViewById(R.id.criaObservacao);
         Spinner spinner = findViewById(R.id.pesquisarInternet);
         spinner.setSelection(0,false);
         spinner.setOnItemSelectedListener(this);
+        Button btnSalvar = findViewById(R.id.btnSalvar);
+
+        btnSalvar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(validarCampos()){
+                    Intent intent = new Intent(v.getContext(), MainActivity.class);
+                    startActivity(intent);
+                }
+                else {
+                    Snackbar snackbar = Snackbar.make(v, "Cadastro Incorreto!!", Snackbar.LENGTH_LONG);
+                    snackbar.show();
+                }
+            }
+        });
+    }
+
+    private boolean validarCampos(){
+
+        if (itemText.getText().toString().isEmpty()){
+            criaitemTextLabel.setErrorEnabled(true);
+            criaitemTextLabel.setError("Este campo é obrigatório");
+            return false;
+        }else{
+            criaitemTextLabel.setErrorEnabled(false);
+        }
+        return true;
     }
 
 

@@ -6,6 +6,13 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <include
+        layout="@layout/app_bar_main"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"/>
+
+    Na
+
     <ListView
         android:id="@+id/lista_menu"
         android:layout_width="0dp"
@@ -19,7 +26,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageLogo">
 
-
     </ListView>
 
     <ImageView
@@ -31,4 +37,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/logo1" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

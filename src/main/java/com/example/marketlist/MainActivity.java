@@ -1,15 +1,16 @@
 package com.example.marketlist;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.AdapterView;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
-public class MainActivity extends AppCompatActivity implements AdapterView.OnItemClickListener {
+public class MainActivity extends AppCompatActivity  {
 
     private ListView lista;
 
@@ -24,30 +25,24 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                                                     android.R.layout.simple_list_item_1,
                                                     componenteMenus);
         lista.setAdapter(listaAdapter);
-        lista.setOnItemClickListener(this);
+
     }
 
     @Override
-    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+    public boolean onCreateOptionsMenu(Menu menu) {
 
-        if(position == 0){//componente QRCode
-            Intent intent = new Intent(this, QRCode.class);
+        getMenuInflater().inflate(R.menu.main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+
+        if(item.getItemId() == R.id.action_settings){
+            Intent intent = new Intent(getApplicationContext(), Sobre.class);
             startActivity(intent);
         }
 
-        if(position == 1){//componente Lista
-            Intent intent = new Intent(this, ListaMercado.class);
-            startActivity(intent);
-        }
-
-        if(position == 2){//componente Gastos
-            Intent intent = new Intent(this, Gastos.class);
-            startActivity(intent);
-        }
-        if(position == 3){//componente Sobre
-            Intent intent = new Intent(this, Sobre.class);
-            startActivity(intent);
-        }
-
+        return super.onOptionsItemSelected(item);
     }
 }
