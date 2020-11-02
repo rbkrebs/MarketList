@@ -59,7 +59,13 @@ public class CriaItemLista extends AppCompatActivity implements AdapterView.OnIt
             criaitemTextLabel.setErrorEnabled(true);
             criaitemTextLabel.setError("Este campo é obrigatório");
             return false;
-        }else{
+        }else if(itemText.getText().toString().length()> criaitemTextLabel.getCounterMaxLength()){
+            criaitemTextLabel.setErrorEnabled(true);
+            criaitemTextLabel.setError("Número de caracteres maior que o permitido");
+            return false;
+        }
+
+        else{
             criaitemTextLabel.setErrorEnabled(false);
         }
         return true;

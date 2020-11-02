@@ -53,8 +53,8 @@
 
         <ImageButton
             android:id="@+id/btn_delete"
-            android:layout_width="47dp"
-            android:layout_height="43dp"
+            android:layout_width="@dimen/btn_icons"
+            android:layout_height="@dimen/btn_icons"
             android:layout_marginTop="60dp"
             android:src="@drawable/ic_baseline_delete_forever_24"
             style="@style/botao"
@@ -68,8 +68,8 @@
 
         <ImageButton
             android:id="@+id/btn_altera"
-            android:layout_width="47dp"
-            android:layout_height="43dp"
+            android:layout_width="@dimen/btn_icons"
+            android:layout_height="@dimen/btn_icons"
             android:src="@drawable/ic_baseline_edit_24"
             style="@style/botao"
             app:itemIconTint="@color/cardview_light_background"

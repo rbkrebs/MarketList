@@ -12,6 +12,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.marketlist.R;
+import com.google.android.material.snackbar.Snackbar;
 
 public class AlteraItemCompra extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
@@ -47,8 +48,9 @@ public class AlteraItemCompra extends AppCompatActivity implements AdapterView.O
 
     public void onBtnSalvarClicked(View view) {
 
-        Toast.makeText(AlteraItemCompra.this,
-                "Alterações salvas! (Mentirinha!!!)", Toast.LENGTH_SHORT).show();
+
+        Snackbar snackbar = Snackbar.make(view, "Alterações salvas! (Mentirinha!!!)", Snackbar.LENGTH_LONG);
+        snackbar.show();
 
 
     }

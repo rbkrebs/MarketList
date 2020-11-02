@@ -8,16 +8,17 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/criaitemTextLabel"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Nome do produto"
+        app:counterEnabled="true"
+        app:counterMaxLength="10"
         app:errorEnabled="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.054"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.157" />
+        app:layout_constraintVertical_bias="0.157">
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/criaItem"
@@ -26,27 +27,29 @@
         android:layout_marginLeft="@dimen/margem_crud"
         android:layout_marginStart="@dimen/margem_crud"
         android:layout_marginRight="@dimen/margem_crud"
+        android:hint="Nome do produto"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.365"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.212" />
+    </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/criaObservacaoLabel"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Observação sobre produto"
         app:counterEnabled="true"
-        app:counterMaxLength="10"
+        app:counterMaxLength="30"
         app:errorEnabled="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.053"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.339" />
+        app:layout_constraintVertical_bias="0.339" >
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/criaObservacao"
@@ -62,6 +65,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.437" />
+    </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
         android:id="@+id/textPesquisa"

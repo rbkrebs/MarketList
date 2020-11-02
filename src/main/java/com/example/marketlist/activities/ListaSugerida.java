@@ -43,7 +43,7 @@ public class ListaSugerida extends AppCompatActivity {
                 listaMercado, new RecyclerItemClickListener.OnItemClickListener() {
             @Override
             public void onItemClick(View view, int position) {
-                Snackbar snackbar = Snackbar.make(view, "Pressione no item para adicioná=lo",
+                Snackbar snackbar = Snackbar.make(view, "Pressione no item para adicioná-lo",
                         Snackbar.LENGTH_LONG);
                 snackbar.show();
             }
