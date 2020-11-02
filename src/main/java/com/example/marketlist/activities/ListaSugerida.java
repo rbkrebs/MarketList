@@ -1,4 +1,4 @@
-package com.example.marketlist;
+package com.example.marketlist.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -7,13 +7,11 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.ListView;
 
+import com.example.marketlist.adapters.BasicAdapter;
+import com.example.marketlist.R;
 import com.example.marketlist.model.ListaProvisoria;
-
-import java.util.List;
 
 public class ListaSugerida extends AppCompatActivity {
 

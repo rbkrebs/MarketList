@@ -14,14 +14,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".CriaItemLista"></activity>
-        <activity android:name=".AlteraItemCompra" />
-        <activity android:name=".Sobre" />
-        <activity android:name=".ListaSugerida" />
-        <activity android:name=".QRCode" />
-        <activity android:name=".ListaMercado" />
-        <activity android:name=".Gastos" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".activities.CriaItemLista"></activity>
+        <activity android:name=".activities.AlteraItemCompra" />
+        <activity android:name=".activities.Sobre" />
+        <activity android:name=".activities.ListaSugerida" />
+        <activity android:name=".activities.QRCode" />
+        <activity android:name=".activities.ListaMercado" />
+        <activity android:name=".activities.Gastos" />
+        <activity android:name=".activities.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

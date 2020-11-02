@@ -1,4 +1,4 @@
-package com.example.marketlist;
+package com.example.marketlist.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -6,11 +6,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.marketlist.R;
 
 public class AlteraItemCompra extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 

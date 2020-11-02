@@ -1,4 +1,4 @@
-package com.example.marketlist;
+package com.example.marketlist.activities;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -9,6 +9,9 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+
+import com.example.marketlist.model.ComponenteMenu;
+import com.example.marketlist.R;
 
 public class MainActivity extends AppCompatActivity  {
 

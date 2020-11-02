@@ -1,4 +1,4 @@
-package com.example.marketlist;
+package com.example.marketlist.model;
 
 public class ComponenteMenu {
     private String nome;

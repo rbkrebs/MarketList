@@ -1,4 +1,4 @@
-package com.example.marketlist;
+package com.example.marketlist.adapters;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,6 +8,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.marketlist.R;
 import com.example.marketlist.model.ListaProvisoria;
 
 import java.util.ArrayList;

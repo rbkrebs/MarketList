@@ -1,8 +1,10 @@
-package com.example.marketlist;
+package com.example.marketlist.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.example.marketlist.R;
 
 public class Sobre extends AppCompatActivity {
 
