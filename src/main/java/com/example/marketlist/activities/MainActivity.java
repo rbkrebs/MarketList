@@ -2,6 +2,12 @@ package com.example.marketlist.activities;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
+import androidx.navigation.ui.AppBarConfiguration;
+import androidx.navigation.ui.NavigationUI;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,22 +18,31 @@ import android.widget.ListView;
 
 import com.example.marketlist.model.ComponenteMenu;
 import com.example.marketlist.R;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity  {
 
-    private ListView lista;
+    private AppBarConfiguration mAppBarConfiguration;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        lista = findViewById(R.id.lista_menu);
-        ComponenteMenu[] componenteMenus = ComponenteMenu.componentes;
-        ArrayAdapter<ComponenteMenu> listaAdapter = new ArrayAdapter(this,
-                                                    android.R.layout.simple_list_item_1,
-                                                    componenteMenus);
-        lista.setAdapter(listaAdapter);
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
+        mAppBarConfiguration = new AppBarConfiguration.Builder(
+                R.id.nav_home)
+                .setDrawerLayout(drawer)
+                .build();
+
+        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
+        NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
+
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNav);
+        NavigationUI.setupWithNavController(bottomNavigationView,
+                Navigation.findNavController(this, R.id.nav_host_fragment));
 
     }
 
@@ -47,5 +62,12 @@ public class MainActivity extends AppCompatActivity  {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
+        return NavigationUI.navigateUp(navController, mAppBarConfiguration)
+                || super.onSupportNavigateUp();
     }
 }

@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.marketlist">
+
     <uses-permission android:name="android.permission.CAMERA" />
+
     <uses-feature android:name="android.hardware.camera" />
     <uses-feature android:name="android.hardware.camera.autofocus" />
     <uses-feature android:name="android.hardware.camera.flash" />
+
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
@@ -14,14 +17,17 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activities.CriaItemLista"></activity>
+
+
+        <activity android:name=".activities.CriaItemLista" />
         <activity android:name=".activities.AlteraItemCompra" />
         <activity android:name=".activities.Sobre" />
         <activity android:name=".activities.ListaSugerida" />
         <activity android:name=".activities.QRCode" />
         <activity android:name=".activities.ListaMercado" />
         <activity android:name=".activities.Gastos" />
-        <activity android:name=".activities.MainActivity">
+        <activity android:name=".activities.MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
