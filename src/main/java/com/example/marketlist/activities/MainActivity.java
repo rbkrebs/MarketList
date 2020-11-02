@@ -31,14 +31,6 @@ public class MainActivity extends AppCompatActivity  {
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        DrawerLayout drawer = findViewById(R.id.drawer_layout);
-        mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_home)
-                .setDrawerLayout(drawer)
-                .build();
-
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
-        NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNav);
         NavigationUI.setupWithNavController(bottomNavigationView,
@@ -64,10 +56,5 @@ public class MainActivity extends AppCompatActivity  {
         return super.onOptionsItemSelected(item);
     }
 
-    @Override
-    public boolean onSupportNavigateUp() {
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
-        return NavigationUI.navigateUp(navController, mAppBarConfiguration)
-                || super.onSupportNavigateUp();
-    }
+
 }
