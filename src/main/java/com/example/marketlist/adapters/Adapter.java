@@ -12,6 +12,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.marketlist.FireBase;
 import com.example.marketlist.R;
 import com.example.marketlist.activities.AlteraItemCompra;
 import com.example.marketlist.model.ListaProvisoria;
@@ -42,6 +43,8 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
     public void onBindViewHolder(@NonNull Adapter.ViewHolder viewHolder, @SuppressLint("RecyclerView") final int position) {
 
         ListaProvisoria listaProvisoria = listaItens.get(position);
+        //FireBase.inicializarFireBase(this.context);
+        
 
         viewHolder.nomeProduto.setText(listaProvisoria.getNomeProduto());
         viewHolder.quantidade.setText(String.valueOf(listaProvisoria.getQuantidade()));
