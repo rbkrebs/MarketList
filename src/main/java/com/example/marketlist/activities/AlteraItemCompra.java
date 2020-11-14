@@ -12,6 +12,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.marketlist.R;
+import com.example.marketlist.model.ListaProvisoria;
 import com.google.android.material.snackbar.Snackbar;
 
 public class AlteraItemCompra extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
@@ -26,6 +27,8 @@ public class AlteraItemCompra extends AppCompatActivity implements AdapterView.O
         Spinner spinnerQuantidadeItem = findViewById(R.id.spinnerQuantidadeItem);
 
         Intent intent = getIntent();
+
+        ListaProvisoria listaProvisoria = (ListaProvisoria) intent.getSerializableExtra("item");
         itemText.setText(intent.getStringExtra("itemText"));
         editObservacao.setText(intent.getStringExtra("editObservacao"));
         spinnerQuantidadeItem.setSelection(intent.getIntExtra("spinnerQuantidadeItem",1)-1);

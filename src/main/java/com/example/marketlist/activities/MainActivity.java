@@ -23,7 +23,7 @@ import com.example.marketlist.R;
 import com.example.marketlist.model.ListaProvisoria;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-public class MainActivity extends AppCompatActivity implements ListaFragment.ItemListListener {
+public class MainActivity extends AppCompatActivity  {
 
     private AppBarConfiguration mAppBarConfiguration;
 
@@ -59,13 +59,4 @@ public class MainActivity extends AppCompatActivity implements ListaFragment.Ite
         return super.onOptionsItemSelected(item);
     }
 
-
-    @Override
-    public void onClickItem(ListaProvisoria listaProvisoria) {
-
-            
-        Intent intent = new Intent(this, AlteraItemCompra.class);
-        intent.putExtra("item", listaProvisoria);
-        startActivity(intent);
-    }
 }

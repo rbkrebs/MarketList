@@ -19,17 +19,17 @@
     <activity
         android:id="@+id/bottom_nav_lista"
         android:name="com.example.marketlist.activities.ListaMercado"
-        android:label="QRCode"
+        android:label="Lista"
         tools:layout="@layout/activity_lista_mercado"/>
     <activity
         android:id="@+id/bottom_nav_graficos"
         android:name="com.example.marketlist.activities.Gastos"
-        android:label="QRCode"
+        android:label="Gastos"
         tools:layout="@layout/activity_gastos"/>
     <fragment
         android:id="@+id/bottom_nav_pesquisar"
         android:name="com.example.marketlist.fragments.SearchFragment"
-        android:label="QRCode"
+        android:label="Pesquisa"
         tools:layout="@layout/fragment_search"/>
 
 </navigation>
