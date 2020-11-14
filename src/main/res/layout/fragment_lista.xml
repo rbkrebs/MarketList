@@ -4,30 +4,22 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.ListaMercado">
+    android:orientation="horizontal">
 
-
-    <fragment
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:name="com.example.marketlist.fragments.ListaFragment"
-        android:id="@+id/fragment_lista"/>
-
-
-   <androidx.recyclerview.widget.RecyclerView
-       android:id="@+id/lista_mercado"
-       android:layout_width="0dp"
-       android:layout_height="0dp"
-       android:layout_marginStart="@dimen/margem_list"
-       android:layout_marginLeft="@dimen/margem_list"
-       android:layout_marginEnd="@dimen/margem_list"
-       android:layout_marginRight="@dimen/margem_list"
-       app:layout_constraintBottom_toTopOf="@+id/adiciona_item"
-       app:layout_constraintEnd_toEndOf="parent"
-       app:layout_constraintHorizontal_bias="1.0"
-       app:layout_constraintStart_toStartOf="parent"
-       app:layout_constraintTop_toTopOf="parent"
-       app:layout_constraintVertical_bias="1.0"/>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/lista_mercado"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="@dimen/margem_list"
+        android:layout_marginLeft="@dimen/margem_list"
+        android:layout_marginEnd="@dimen/margem_list"
+        android:layout_marginRight="@dimen/margem_list"
+        app:layout_constraintBottom_toTopOf="@+id/adiciona_item"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"/>
 
 
     <Button
@@ -43,6 +35,4 @@
         app:layout_constraintHorizontal_bias="0.467"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/lista_mercado" />
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>

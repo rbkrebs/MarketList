@@ -13,14 +13,17 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import com.example.marketlist.fragments.ListaFragment;
 import com.example.marketlist.model.ComponenteMenu;
 import com.example.marketlist.R;
+import com.example.marketlist.model.ListaProvisoria;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-public class MainActivity extends AppCompatActivity  {
+public class MainActivity extends AppCompatActivity implements ListaFragment.ItemListListener {
 
     private AppBarConfiguration mAppBarConfiguration;
 
@@ -57,4 +60,12 @@ public class MainActivity extends AppCompatActivity  {
     }
 
 
+    @Override
+    public void onClickItem(ListaProvisoria listaProvisoria) {
+
+            
+        Intent intent = new Intent(this, AlteraItemCompra.class);
+        intent.putExtra("item", listaProvisoria);
+        startActivity(intent);
+    }
 }
