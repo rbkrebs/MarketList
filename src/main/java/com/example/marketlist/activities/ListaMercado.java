@@ -4,8 +4,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
@@ -14,7 +16,7 @@ import com.example.marketlist.R;
 import com.example.marketlist.fragments.ListaFragment;
 import com.example.marketlist.model.ListaProvisoria;
 
-public class ListaMercado extends AppCompatActivity {
+public class ListaMercado extends AppCompatActivity implements Adapter.ListaProvisoriaListener {
 
 
     @Override
@@ -25,4 +27,13 @@ public class ListaMercado extends AppCompatActivity {
 
     }
 
+    @Override
+    public void onClickItem(ListaProvisoria listaProvisoria) {
+        Intent intent = new Intent(this, AlteraItemCompra.class);
+        intent.putExtra("item", listaProvisoria);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        Log.d("onclickListaMercado", String.valueOf(listaProvisoria));
+        this.startActivity(intent);
+
+    }
 }

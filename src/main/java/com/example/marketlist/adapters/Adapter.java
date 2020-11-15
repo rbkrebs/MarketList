@@ -1,8 +1,10 @@
 package com.example.marketlist.adapters;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,6 +17,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.marketlist.FireBase;
 import com.example.marketlist.R;
 import com.example.marketlist.activities.AlteraItemCompra;
+import com.example.marketlist.fragments.FormItemFragment;
 import com.example.marketlist.model.ListaProvisoria;
 
 import java.util.ArrayList;
@@ -22,11 +25,14 @@ import java.util.List;
 
 public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
 
-    List<ListaProvisoria> listaItens = new ArrayList();
+    List<ListaProvisoria> listaItens;
     private Context context;
-    public Adapter(List<ListaProvisoria> itens, Context context){
+
+
+    public Adapter(List<ListaProvisoria> itens, Context context ){
         this.listaItens = itens;
         this.context = context;
+
     }
 
     @NonNull
@@ -60,14 +66,11 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
         viewHolder.btnAlterar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(context, AlteraItemCompra.class);
 
-                intent.putExtra("itemText", listaItens.get(position).getNomeProduto());
-                intent.putExtra("editObservacao", listaItens.get(position).getObservacoes());
-                intent.putExtra("spinnerQuantidadeItem", listaItens.get(position).getQuantidade());
-                //tive que implementar essa flag para contornar um erro!
-                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                context.startActivity(intent);
+                ListaProvisoriaListener listaProvisoriaListener = (ListaProvisoriaListener)v.getContext();
+
+                listaProvisoriaListener.onClickItem(listaItens.get(position));
+
             }
         });
 
@@ -87,6 +90,8 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
         return listaItens != null? listaItens.size() : 0;
     }
 
+
+
     public class ViewHolder extends RecyclerView.ViewHolder{
 
         TextView nomeProduto;
@@ -104,5 +109,10 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
             btnAlterar = itemView.findViewById(R.id.btn_altera);
         }
     }
+
+    public interface ListaProvisoriaListener{
+        void onClickItem(ListaProvisoria listaProvisoria);
+    }
+
 }
 

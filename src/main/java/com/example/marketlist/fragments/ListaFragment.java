@@ -1,6 +1,8 @@
 package com.example.marketlist.fragments;
 
 
+import android.app.Activity;
+import android.app.ListFragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -22,7 +24,7 @@ import com.example.marketlist.model.ListaProvisoria;
 
 
 
-public class ListaFragment extends Fragment {
+public class ListaFragment extends Fragment  {
 
     RecyclerView listaMercado;
     Button adicionaItem;
@@ -33,18 +35,19 @@ public class ListaFragment extends Fragment {
         View layout = inflater.inflate(R.layout.fragment_lista, container, false);
         listaMercado = layout.findViewById(R.id.lista_mercado);
 
+
         Adapter adapter = new Adapter(ListaProvisoria.criaLista(), getContext());
         listaMercado.setAdapter(adapter);
         listaMercado.setHasFixedSize(true);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext());
         listaMercado.setLayoutManager(layoutManager);
-        Log.d("FragmentLista", "Yeah baby");
+
 
         adicionaItem = layout.findViewById(R.id.adiciona_item);
         adicionaItem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.d("FragmentLista", "adiciona");
+
                 Intent intent = new Intent(getContext(), ListaSugerida.class);
                 startActivity(intent);
 
