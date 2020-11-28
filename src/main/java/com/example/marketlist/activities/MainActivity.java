@@ -22,10 +22,12 @@ import com.example.marketlist.model.ComponenteMenu;
 import com.example.marketlist.R;
 import com.example.marketlist.model.ListaProvisoria;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class MainActivity extends AppCompatActivity  {
 
     private AppBarConfiguration mAppBarConfiguration;
+    private FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

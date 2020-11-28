@@ -14,7 +14,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.marketlist.FireBase;
+
 import com.example.marketlist.R;
 import com.example.marketlist.activities.AlteraItemCompra;
 import com.example.marketlist.fragments.FormItemFragment;
