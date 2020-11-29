@@ -17,16 +17,30 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
-
-        <activity android:name=".activities.CriaItemLista" />
-        <activity android:name=".activities.AlteraItemCompra" />
-        <activity android:name=".activities.Sobre" />
-        <activity android:name=".activities.ListaSugerida" />
-        <activity android:name=".activities.QRCode" />
-        <activity android:name=".activities.ListaMercado" />
-        <activity android:name=".activities.Gastos" />
-        <activity android:name=".activities.MainActivity"
+        <activity android:name=".activities.Login"></activity>
+        <activity
+            android:name=".activities.CriaItemLista"
+            android:parentActivityName=".activities.ListaSugerida" />
+        <activity
+            android:name=".activities.AlteraItemCompra"
+            android:parentActivityName=".activities.ListaMercado" />
+        <activity
+            android:name=".activities.Sobre"
+            android:parentActivityName=".activities.MainActivity" />
+        <activity
+            android:name=".activities.ListaSugerida"
+            android:parentActivityName=".activities.ListaMercado" />
+        <activity
+            android:name=".activities.QRCode"
+            android:parentActivityName=".activities.MainActivity" />
+        <activity
+            android:name=".activities.ListaMercado"
+            android:parentActivityName=".activities.MainActivity" />
+        <activity
+            android:name=".activities.Gastos"
+            android:parentActivityName=".activities.MainActivity" />
+        <activity
+            android:name=".activities.MainActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
