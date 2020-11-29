@@ -57,6 +57,10 @@ public class MainActivity extends AppCompatActivity  {
             Intent intent = new Intent(getApplicationContext(), Sobre.class);
             startActivity(intent);
         }
+        if(item.getItemId() == R.id.action_logout){
+            FirebaseAuth.getInstance().signOut();
+            finish();
+        }
 
         return super.onOptionsItemSelected(item);
     }
