@@ -59,10 +59,6 @@ dependencies {
     testImplementation "androidx.room:room-testing:$room_version"
 
 
-    apply plugin: 'com.android.application'
-    apply plugin: 'realm-android'
-
-
 
 
 }

@@ -1,31 +1,23 @@
 package com.example.marketlist.dao;
 
-import com.example.marketlist.model.Sobre;
+import androidx.room.Dao;
+import androidx.room.Insert;
+import androidx.room.Query;
 
-import io.realm.Realm;
+import com.example.marketlist.entity.Sobre;
 
-public class SobreDAO {
+import static androidx.room.OnConflictStrategy.REPLACE;
 
-    public String insert(Sobre sobre) {
-        try {
-            Realm realm = Realm.getDefaultInstance();
-            realm.beginTransaction();
-            try {
-                // Realm não tem um auto incremento, logo é necessário fazer o código abaixo
-                sobre.setId(realm.where(Sobre.class).max("id").intValue() + 1);
-            } catch (Exception ex) {
-                sobre.setId(1);
-            }
+@Dao
+public interface SobreDAO {
 
-            //para inserir dados é necessário abrir uma transaction e no final do bloco chamar o método commitTransaction()
-            realm.insert(sobre);
-            realm.commitTransaction();
-            return "Registro Inserido com sucesso";
+    @Query("SELECT * FROM  Sobre")
+    public Sobre getSobre();
 
-        } catch (Exception e) {
-            e.printStackTrace();
-            return "Erro ao inserir registro";
-        }
-    }
+    @Insert(onConflict = REPLACE)
+    public void insert(Sobre sobre);
+
+
+
 
 }
