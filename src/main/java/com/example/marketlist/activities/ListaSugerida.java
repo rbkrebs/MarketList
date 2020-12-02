@@ -61,9 +61,6 @@ public class ListaSugerida extends AppCompatActivity {
             }
         }));
 
-
-
-
         adicionaItem = findViewById(R.id.cria_item);
         adicionaItem.setOnClickListener(new View.OnClickListener() {
             @Override

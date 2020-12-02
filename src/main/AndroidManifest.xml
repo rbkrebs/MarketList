@@ -11,23 +11,50 @@
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
+
         android:allowBackup="true"
         android:icon="@drawable/logo1"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
-
-        <activity android:name=".activities.CriaItemLista" />
-        <activity android:name=".activities.AlteraItemCompra" />
-        <activity android:name=".activities.Sobre" />
-        <activity android:name=".activities.ListaSugerida" />
-        <activity android:name=".activities.QRCode" />
-        <activity android:name=".activities.ListaMercado" />
-        <activity android:name=".activities.Gastos" />
-        <activity android:name=".activities.MainActivity"
-            android:theme="@style/AppTheme.NoActionBar">
+        <activity
+            android:name=".activities.CriaItemLista"
+            android:parentActivityName=".activities.ListaSugerida"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".activities.AlteraItemCompra"
+            android:parentActivityName=".activities.ListaMercado"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".activities.SobreActivity"
+            android:parentActivityName=".activities.MainActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".activities.ListaSugerida"
+            android:parentActivityName=".activities.ListaMercado"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".activities.QRCode"
+            android:parentActivityName=".activities.MainActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".activities.ListaMercado"
+            android:parentActivityName=".activities.MainActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".activities.Gastos"
+            android:parentActivityName=".activities.MainActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".activities.MainActivity"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".activities.LoginActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

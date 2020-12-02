@@ -3,26 +3,27 @@ package com.example.marketlist.activities;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
 
-import com.example.marketlist.model.ComponenteMenu;
 import com.example.marketlist.R;
+import com.example.marketlist.dao.AppDatabase;
+import com.example.marketlist.dao.SobreDAO;
+import com.example.marketlist.entity.Sobre;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class MainActivity extends AppCompatActivity  {
 
     private AppBarConfiguration mAppBarConfiguration;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +36,29 @@ public class MainActivity extends AppCompatActivity  {
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNav);
         NavigationUI.setupWithNavController(bottomNavigationView,
                 Navigation.findNavController(this, R.id.nav_host_fragment));
+
+        new AsyncTask<Void,Integer, Integer>() {
+            @Override
+            protected Integer doInBackground(Void... voids) {
+                SobreDAO sobreDao = AppDatabase.getInstance(getApplicationContext()).createSobreDAO();
+                Sobre sobre = new Sobre();
+                sobre.setNome("Rômulo Basso Krebs");
+                sobre.setDisciplina("Programação para Web III – APNP 2020");
+                sobre.setMensagem("Então é Natal e o que vc fez????");
+                sobre.setGithub("https://github.com/rbkrebs/MarketList");
+                sobre.setLinkedin("https://www.linkedin.com/in/romulo-krebs/");
+                if (sobreDao.getSobre() == null){
+                    sobreDao.insert(sobre);
+                    return sobre.getId();
+                }
+                return null;
+            }
+
+            @Override
+            protected void onPostExecute(Integer id) {
+
+            }
+        }.execute();
 
     }
 
@@ -49,12 +73,15 @@ public class MainActivity extends AppCompatActivity  {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
 
         if(item.getItemId() == R.id.action_settings){
-            Intent intent = new Intent(getApplicationContext(), Sobre.class);
+            Intent intent = new Intent(getApplicationContext(), SobreActivity.class);
             startActivity(intent);
+        }
+        if(item.getItemId() == R.id.action_logout){
+            FirebaseAuth.getInstance().signOut();
+            finish();
         }
 
         return super.onOptionsItemSelected(item);
     }
-
 
 }

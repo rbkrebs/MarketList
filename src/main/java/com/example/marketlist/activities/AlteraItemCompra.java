@@ -1,9 +1,12 @@
 package com.example.marketlist.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.EditText;
@@ -12,6 +15,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.marketlist.R;
+import com.example.marketlist.fragments.FormItemFragment;
+import com.example.marketlist.model.ListaProvisoria;
 import com.google.android.material.snackbar.Snackbar;
 
 public class AlteraItemCompra extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
@@ -19,16 +24,16 @@ public class AlteraItemCompra extends AppCompatActivity implements AdapterView.O
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_altera_item_compra);
 
-        TextView itemText = findViewById(R.id.itemText);
-        EditText editObservacao = findViewById(R.id.editObservacao);
-        Spinner spinnerQuantidadeItem = findViewById(R.id.spinnerQuantidadeItem);
-
         Intent intent = getIntent();
-        itemText.setText(intent.getStringExtra("itemText"));
-        editObservacao.setText(intent.getStringExtra("editObservacao"));
-        spinnerQuantidadeItem.setSelection(intent.getIntExtra("spinnerQuantidadeItem",1)-1);
+        ListaProvisoria listaProvisoria = (ListaProvisoria) intent.getSerializableExtra("item");
+        FormItemFragment formItemFragment =  FormItemFragment.novaInstancia(listaProvisoria);
+        FragmentManager fm = getSupportFragmentManager();
+        FragmentTransaction ft = fm.beginTransaction();
+        ft.replace(R.id.altera_itens,formItemFragment, FormItemFragment.TAG_DETALHE);
+        ft.commit();
 
 
     }

@@ -1,9 +1,10 @@
 package com.example.marketlist.model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ListaProvisoria {
+public class ListaProvisoria implements Serializable {
 
     private Integer quantidade;
     private String nomeProduto;

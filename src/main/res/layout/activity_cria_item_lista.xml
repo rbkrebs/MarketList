@@ -4,68 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/cria_item"
     tools:context=".activities.CriaItemLista">
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/criaitemTextLabel"
+    <fragment
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:counterEnabled="true"
-        app:counterMaxLength="10"
-        app:errorEnabled="true"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.054"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.157">
-
-    <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/criaItem"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/height_editText"
-        android:layout_marginLeft="@dimen/margem_crud"
-        android:layout_marginStart="@dimen/margem_crud"
-        android:layout_marginRight="@dimen/margem_crud"
-        android:hint="Nome do produto"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.365"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.212" />
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/criaObservacaoLabel"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Observação sobre produto"
-        app:counterEnabled="true"
-        app:counterMaxLength="30"
-        app:errorEnabled="true"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.053"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.339" >
-
-    <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/criaObservacao"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/height_editText"
-        android:layout_marginEnd="@dimen/margem_crud"
-        android:layout_marginRight="@dimen/margem_crud"
-        android:layout_marginStart="@dimen/margem_crud"
-        android:layout_marginLeft="@dimen/margem_crud"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.447"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.437" />
-    </com.google.android.material.textfield.TextInputLayout>
+        android:layout_height="match_parent"
+        android:name="com.example.marketlist.fragments.FormItemFragment"
+        android:id="@+id/fragment_form_item"/>
 
     <TextView
         android:id="@+id/textPesquisa"
@@ -78,7 +24,7 @@
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.591" />
+        app:layout_constraintVertical_bias="0.608" />
 
     <Spinner
         android:id="@+id/pesquisarInternet"
@@ -91,17 +37,5 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.676" />
 
-    <Button
-        android:id="@+id/btnSalvar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/btnSalvar"
-        style="@style/botao"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.819" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
