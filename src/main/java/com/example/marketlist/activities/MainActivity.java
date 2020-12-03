@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity  {
                 Sobre sobre = new Sobre();
                 sobre.setNome("Rômulo Basso Krebs");
                 sobre.setDisciplina("Programação para Web III – APNP 2020");
-                sobre.setMensagem("Então é Natal e o que vc fez????");
+                sobre.setMensagem("Sou um técnico de laboratório em transição de carreira.");
                 sobre.setGithub("https://github.com/rbkrebs/MarketList");
                 sobre.setLinkedin("https://www.linkedin.com/in/romulo-krebs/");
                 if (sobreDao.getSobre() == null){

@@ -9,6 +9,7 @@ public class NotaFiscal {
 
     private String nomeEstabelecimento;
     private Long cnpj;
+    private Long numeroNotaFiscal;
     private LocaleData dataEmissao;
     private Long chaveAcesso;
     private Long protocoloAutorizacao;
@@ -17,15 +18,13 @@ public class NotaFiscal {
     public NotaFiscal() {
     }
 
-    public NotaFiscal(String nomeEstabelecimento, Long cnpj,
-                      LocaleData dataEmissao, Long chaveAcesso,
-                      Long protocoloAutorizacao, List<ItemComprado> itensComprados) {
+    public NotaFiscal(String nomeEstabelecimento, Long cnpj, Long numeroNotaFiscal, LocaleData dataEmissao, Long chaveAcesso, Long protocoloAutorizacao) {
         this.nomeEstabelecimento = nomeEstabelecimento;
         this.cnpj = cnpj;
+        this.numeroNotaFiscal = numeroNotaFiscal;
         this.dataEmissao = dataEmissao;
         this.chaveAcesso = chaveAcesso;
         this.protocoloAutorizacao = protocoloAutorizacao;
-        this.itensComprados = itensComprados;
     }
 
     public String getNomeEstabelecimento() {
@@ -42,6 +41,14 @@ public class NotaFiscal {
 
     public void setCnpj(Long cnpj) {
         this.cnpj = cnpj;
+    }
+
+    public Long getNumeroNotaFiscal() {
+        return numeroNotaFiscal;
+    }
+
+    public void setNumeroNotaFiscal(Long numeroNotaFiscal) {
+        this.numeroNotaFiscal = numeroNotaFiscal;
     }
 
     public LocaleData getDataEmissao() {
