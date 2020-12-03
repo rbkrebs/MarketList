@@ -1,5 +1,6 @@
 package com.example.marketlist.activities;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -14,6 +15,11 @@ import android.widget.Toast;
 import com.example.marketlist.R;
 import com.example.marketlist.model.ItemComprado;
 import com.example.marketlist.model.NotaFiscal;
+import com.example.marketlist.util.ConfiguraFirebase;
+import com.google.android.gms.tasks.OnCanceledListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.database.DatabaseReference;
 import com.google.zxing.Result;
 import com.karumi.dexter.Dexter;
 import com.karumi.dexter.PermissionToken;
@@ -36,13 +42,10 @@ import me.dm7.barcodescanner.zxing.ZXingScannerView;
 
 public class QRCode extends AppCompatActivity implements ZXingScannerView.ResultHandler {
 
-    /*Nesta classe a única função 'visível' é o intent
-    No Logcat é possível ver a URL do QRCode
-    Ainda vou implementar a classe Crawler para copiar os dados
-     */
 
     private ZXingScannerView scannerView;
     private static String url;
+    private DatabaseReference reference = ConfiguraFirebase.getNoRaiz();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -96,9 +99,9 @@ public class QRCode extends AppCompatActivity implements ZXingScannerView.Result
         protected Void doInBackground(Void... voids) {
             String url_code = QRCode.url; //"https://www.sefaz.rs.gov.br/NFCE/NFCE-COM.aspx?p=43201094161890000167650010004159861211031084|2|1|1|AF0133FAD4FFB8F889CA96077AE870377BD0C187";
             try {
+
                 Document doc = Jsoup.connect(url_code).get();
                 Element ele = doc.getElementById("iframeConteudo");
-                Log.d("teste", String.valueOf(ele.attr("src")) );
                 String url_crl = String.valueOf(ele.attr("src"));
                 doc = Jsoup.connect(url_crl).get();
                 System.out.println(doc.select("tr:nth-child(2) > .NFCCabecalho_SubTitulo1").text());
@@ -111,20 +114,19 @@ public class QRCode extends AppCompatActivity implements ZXingScannerView.Result
                 *
                 * */
 
-
                 NotaFiscal notaFiscal = new NotaFiscal();
                 ArrayList<ItemComprado> listaItensComprados = new ArrayList();
-
 
                 int i = 1;
 
                 Element element;
-
+                ItemComprado itemComprado = new ItemComprado();
 
                 do{
                     element = doc.getElementById("Item + " + i);
                     if(element != null){
-                        ItemComprado itemComprado = new ItemComprado();
+
+
                         itemComprado.setCodigo(Long.parseLong(element.text().split(" ")[0]));
                         itemComprado.setDescricao(String.join(" ",(Arrays.asList(Arrays.copyOfRange(element.text().split(" "),1,element.text().split(" ").length -4)))));
                         itemComprado.setQuantidade(Float.parseFloat(element.text().split(" ")[element.text().split(" ").length -4].replace(",",".")));
@@ -136,11 +138,28 @@ public class QRCode extends AppCompatActivity implements ZXingScannerView.Result
 
                     i++;
 
-                }while(element != null);
+                } while (element != null);
 
+                DatabaseReference notaFiscais = reference.child("notafiscal");
                 notaFiscal.setItensComprados(listaItensComprados);
 
-                System.out.println(notaFiscal.getItensComprados().toString());
+                notaFiscais.push().setValue(itemComprado).addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) {
+
+                        Toast.makeText(QRCode.this, "Sucesso ao cadastrar a notafiscal!", Toast.LENGTH_SHORT).show();
+
+                    }
+                }).addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Toast.makeText(QRCode.this, "Erro ao cadastrar nota fiscal!", Toast.LENGTH_SHORT).show();
+                    }
+                });
+
+
+
+                System.out.println(notaFiscal.toString());
 
 
             } catch (IOException e) {

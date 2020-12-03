@@ -7,18 +7,21 @@ import java.util.List;
 
 public class NotaFiscal {
 
+    private int id;
     private String nomeEstabelecimento;
     private Long cnpj;
     private Long numeroNotaFiscal;
     private LocaleData dataEmissao;
     private Long chaveAcesso;
     private Long protocoloAutorizacao;
-    List<ItemComprado> itensComprados;
+    private List<ItemComprado> itensComprados;
 
     public NotaFiscal() {
     }
 
-    public NotaFiscal(String nomeEstabelecimento, Long cnpj, Long numeroNotaFiscal, LocaleData dataEmissao, Long chaveAcesso, Long protocoloAutorizacao) {
+    public NotaFiscal(int id, String nomeEstabelecimento, Long cnpj, Long numeroNotaFiscal, LocaleData dataEmissao, Long chaveAcesso, Long protocoloAutorizacao) {
+
+        this.id = id;
         this.nomeEstabelecimento = nomeEstabelecimento;
         this.cnpj = cnpj;
         this.numeroNotaFiscal = numeroNotaFiscal;
@@ -26,6 +29,8 @@ public class NotaFiscal {
         this.chaveAcesso = chaveAcesso;
         this.protocoloAutorizacao = protocoloAutorizacao;
     }
+
+
 
     public String getNomeEstabelecimento() {
         return nomeEstabelecimento;
@@ -81,5 +86,18 @@ public class NotaFiscal {
 
     public void setItensComprados(List<ItemComprado> itensComprados) {
         this.itensComprados = itensComprados;
+    }
+
+    @Override
+    public String toString() {
+        return "NotaFiscal{" +
+                "nomeEstabelecimento='" + nomeEstabelecimento + '\'' +
+                ", cnpj=" + cnpj +
+                ", numeroNotaFiscal=" + numeroNotaFiscal +
+                ", dataEmissao=" + dataEmissao +
+                ", chaveAcesso=" + chaveAcesso +
+                ", protocoloAutorizacao=" + protocoloAutorizacao +
+                ", itensComprados=" + itensComprados +
+                '}';
     }
 }
