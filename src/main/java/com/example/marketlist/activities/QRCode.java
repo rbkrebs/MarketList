@@ -42,6 +42,7 @@ public class QRCode extends AppCompatActivity implements ZXingScannerView.Result
      */
 
     private ZXingScannerView scannerView;
+    private static String url;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -80,7 +81,7 @@ public class QRCode extends AppCompatActivity implements ZXingScannerView.Result
     public void handleResult(Result rawResult) {
 
 
-
+        this.url = rawResult.getText();
         Content content = new Content();
         content.execute();
         Intent intent = new Intent( QRCode.this, MainActivity.class);
@@ -93,7 +94,7 @@ public class QRCode extends AppCompatActivity implements ZXingScannerView.Result
         @RequiresApi(api = Build.VERSION_CODES.O)//fui obrigado a colocar isso para usar o String.join!!!
         @Override
         protected Void doInBackground(Void... voids) {
-            String url_code = "https://www.sefaz.rs.gov.br/NFCE/NFCE-COM.aspx?p=43201094161890000167650010004159861211031084|2|1|1|AF0133FAD4FFB8F889CA96077AE870377BD0C187";
+            String url_code = QRCode.url; //"https://www.sefaz.rs.gov.br/NFCE/NFCE-COM.aspx?p=43201094161890000167650010004159861211031084|2|1|1|AF0133FAD4FFB8F889CA96077AE870377BD0C187";
             try {
                 Document doc = Jsoup.connect(url_code).get();
                 Element ele = doc.getElementById("iframeConteudo");
@@ -142,8 +143,6 @@ public class QRCode extends AppCompatActivity implements ZXingScannerView.Result
                 System.out.println(notaFiscal.getItensComprados().toString());
 
 
-
-                //Log.d("teste", String.valueOf(elements) );
             } catch (IOException e) {
                 e.printStackTrace();
             }
