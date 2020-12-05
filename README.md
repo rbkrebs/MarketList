@@ -2,12 +2,12 @@
 
 ![Marketlist logo](assets/Markelist.png)
 
-##Overview
+## Overview
 
 MarketList is an idea :bulb: to simplify the way you manage :memo: your purchases everytime you go to supermarket.
 
 
-##Status
+## Status
 
 :warning:
 :construction: Under construction :construction:
