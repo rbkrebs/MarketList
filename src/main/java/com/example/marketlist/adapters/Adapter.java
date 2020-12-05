@@ -18,6 +18,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.marketlist.R;
 import com.example.marketlist.activities.AlteraItemCompra;
 import com.example.marketlist.fragments.FormItemFragment;
+import com.example.marketlist.model.ItemComprado;
 import com.example.marketlist.model.ListaProvisoria;
 
 import java.util.ArrayList;
@@ -25,11 +26,11 @@ import java.util.List;
 
 public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
 
-    List<ListaProvisoria> listaItens;
+    List<ItemComprado> listaItens;
     private Context context;
 
 
-    public Adapter(List<ListaProvisoria> itens, Context context ){
+    public Adapter(List<ItemComprado> itens, Context context ){
         this.listaItens = itens;
         this.context = context;
 
@@ -48,13 +49,13 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull Adapter.ViewHolder viewHolder, @SuppressLint("RecyclerView") final int position) {
 
-        ListaProvisoria listaProvisoria = listaItens.get(position);
+        ItemComprado itemComprado = listaItens.get(position);
         //FireBase.inicializarFireBase(this.context);
         
 
-        viewHolder.nomeProduto.setText(listaProvisoria.getNomeProduto());
-        viewHolder.quantidade.setText(String.valueOf(listaProvisoria.getQuantidade()));
-        viewHolder.observacao.setText(listaProvisoria.getObservacoes());
+        viewHolder.nomeProduto.setText(itemComprado.getDescricao());
+        viewHolder.quantidade.setText(String.valueOf(itemComprado.getQuantidade()));
+        viewHolder.observacao.setText(itemComprado.getUnidade());
 
         viewHolder.btnDeletar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -111,7 +112,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
     }
 
     public interface ListaProvisoriaListener{
-        void onClickItem(ListaProvisoria listaProvisoria);
+        void onClickItem(ItemComprado itemComprado);
     }
 
 }

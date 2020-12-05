@@ -16,6 +16,7 @@ import android.widget.Toast;
 
 import com.example.marketlist.R;
 import com.example.marketlist.fragments.FormItemFragment;
+import com.example.marketlist.model.ItemComprado;
 import com.example.marketlist.model.ListaProvisoria;
 import com.google.android.material.snackbar.Snackbar;
 
@@ -28,8 +29,8 @@ public class AlteraItemCompra extends AppCompatActivity implements AdapterView.O
         setContentView(R.layout.activity_altera_item_compra);
 
         Intent intent = getIntent();
-        ListaProvisoria listaProvisoria = (ListaProvisoria) intent.getSerializableExtra("item");
-        FormItemFragment formItemFragment =  FormItemFragment.novaInstancia(listaProvisoria);
+        ItemComprado itemComprado = (ItemComprado) intent.getSerializableExtra("item");
+        FormItemFragment formItemFragment =  FormItemFragment.novaInstancia(itemComprado);
         FragmentManager fm = getSupportFragmentManager();
         FragmentTransaction ft = fm.beginTransaction();
         ft.replace(R.id.altera_itens,formItemFragment, FormItemFragment.TAG_DETALHE);

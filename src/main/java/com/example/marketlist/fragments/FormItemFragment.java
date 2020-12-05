@@ -17,6 +17,7 @@ import android.widget.Toast;
 import com.example.marketlist.R;
 import com.example.marketlist.activities.MainActivity;
 import com.example.marketlist.adapters.Adapter;
+import com.example.marketlist.model.ItemComprado;
 import com.example.marketlist.model.ListaProvisoria;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.textfield.TextInputEditText;
@@ -30,12 +31,14 @@ public class FormItemFragment extends Fragment {
     private TextInputEditText itemTextInput;
     private TextInputLayout observacaoLabel;
     private TextInputEditText observacaoInput;
-    private ListaProvisoria itemLista;
+    private TextInputEditText quantidadeInput;
+    private TextInputLayout quantidadeLabel;
+    private ItemComprado itemLista;
 
-    public static FormItemFragment novaInstancia(ListaProvisoria listaProvisoria){
+    public static FormItemFragment novaInstancia(ItemComprado itemComprado){
 
         Bundle parametros = new Bundle();
-        parametros.putSerializable("item", listaProvisoria);
+        parametros.putSerializable("item", itemComprado);
         FormItemFragment fragment = new FormItemFragment();
         fragment.setArguments(parametros);
         return fragment;
@@ -53,7 +56,7 @@ public class FormItemFragment extends Fragment {
         super.onCreate(savedInstanceState);
 
         try{
-            itemLista = (ListaProvisoria) getArguments().getSerializable("item");
+            itemLista = (ItemComprado) getArguments().getSerializable("item");
         }catch (NullPointerException e){
             itemLista = null;
         }
@@ -76,14 +79,19 @@ public class FormItemFragment extends Fragment {
         observacaoLabel = layout.findViewById(R.id.editObservacaoLabel);
         observacaoInput = layout.findViewById(R.id.editObservacao);
 
+        quantidadeInput = layout.findViewById(R.id.editQuantidade);
+        quantidadeLabel = layout.findViewById(R.id.editQuantidadeLabel);
+/*
         Spinner spinner = layout.findViewById(R.id.spinnerQuantidadeItem);
-        spinner.setSelection(0,false);
+        spinner.setSelection(0,false);*/
 
         if(itemLista != null){
 
-            itemTextInput.setText(itemLista.getNomeProduto());
-            observacaoInput.setText(itemLista.getObservacoes());
-            spinner.setSelection(itemLista.getQuantidade()-1);
+            itemTextInput.setText(itemLista.getDescricao());
+            observacaoInput.setText(itemLista.getUnidade());
+            quantidadeInput.setText(String.valueOf(itemLista.getQuantidade()));
+
+           // spinner.setSelection(itemLista.getQuantidade()-1);
 
         }
         Button btnSalvar = layout.findViewById(R.id.btnSalvar);

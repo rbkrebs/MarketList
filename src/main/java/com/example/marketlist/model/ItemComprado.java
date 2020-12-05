@@ -1,7 +1,10 @@
 package com.example.marketlist.model;
 
-public class ItemComprado {
+import java.io.Serializable;
 
+public class ItemComprado implements Serializable {
+
+    private String id;
     private Long codigo;
     private String descricao;
     private Float quantidade;
@@ -11,12 +14,22 @@ public class ItemComprado {
     public ItemComprado() {
     }
 
-    public ItemComprado(Long codigo, String descricao, Float quantidade, String unidade, Float valorUnitario) {
+    public ItemComprado(String id, Long codigo, String descricao, Float quantidade, String unidade, Float valorUnitario) {
+
+        this.id = id;
         this.codigo = codigo;
         this.descricao = descricao;
         this.quantidade = quantidade;
         this.unidade = unidade;
         this.valorUnitario = valorUnitario;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public Long getCodigo() {
@@ -62,6 +75,7 @@ public class ItemComprado {
     @Override
     public String toString() {
         return "ItemComprado{" +
+                "id=" + id +
                 "codigo=" + codigo +
                 ", descricao='" + descricao + '\'' +
                 ", quantidade=" + quantidade +
