@@ -76,7 +76,21 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Spinner
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/editQuantidadeLabel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:counterEnabled="true"
+        app:counterMaxLength="30"
+        app:errorEnabled="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.583" />
+
+    <!--<Spinner
         android:id="@+id/spinnerQuantidadeItem"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -86,7 +100,23 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.578" />
+        app:layout_constraintVertical_bias="0.578" />-->
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/editQuantidade"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_marginStart="@dimen/margem_crud"
+        android:layout_marginLeft="@dimen/margem_crud"
+        android:layout_marginEnd="@dimen/margem_crud"
+        android:layout_marginRight="@dimen/margem_crud"
+        android:inputType="text"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.642" />
 
     <Button
         android:id="@+id/btnSalvar"

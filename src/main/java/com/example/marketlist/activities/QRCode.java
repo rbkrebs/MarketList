@@ -114,13 +114,14 @@ public class QRCode extends AppCompatActivity implements ZXingScannerView.Result
                 *
                 * */
 
-                NotaFiscal notaFiscal = new NotaFiscal();
+
                 ArrayList<ItemComprado> listaItensComprados = new ArrayList();
 
                 int i = 1;
 
                 Element element;
                 ItemComprado itemComprado = new ItemComprado();
+                DatabaseReference notaFiscal = reference.child("produtos");
 
                 do{
                     element = doc.getElementById("Item + " + i);
@@ -132,34 +133,26 @@ public class QRCode extends AppCompatActivity implements ZXingScannerView.Result
                         itemComprado.setQuantidade(Float.parseFloat(element.text().split(" ")[element.text().split(" ").length -4].replace(",",".")));
                         itemComprado.setUnidade(element.text().split(" ")[element.text().split(" ").length -3]);
                         itemComprado.setValorUnitario(Float.parseFloat(element.text().split(" ")[element.text().split(" ").length -2].replace(",",".")));
-                        listaItensComprados.add(itemComprado);
+
+                        notaFiscal.push().setValue(itemComprado).addOnSuccessListener(new OnSuccessListener<Void>() {
+                            @Override
+                            public void onSuccess(Void aVoid) {
+
+                                Toast.makeText(QRCode.this, "Sucesso ao cadastrar a notafiscal!", Toast.LENGTH_SHORT).show();
+
+                            }
+                        }).addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+                                Toast.makeText(QRCode.this, "Erro ao cadastrar nota fiscal!", Toast.LENGTH_SHORT).show();
+                            }
+                        });
 
                     }
 
                     i++;
 
                 } while (element != null);
-
-                DatabaseReference notaFiscais = reference.child("notafiscal");
-                notaFiscal.setItensComprados(listaItensComprados);
-
-                notaFiscais.push().setValue(itemComprado).addOnSuccessListener(new OnSuccessListener<Void>() {
-                    @Override
-                    public void onSuccess(Void aVoid) {
-
-                        Toast.makeText(QRCode.this, "Sucesso ao cadastrar a notafiscal!", Toast.LENGTH_SHORT).show();
-
-                    }
-                }).addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        Toast.makeText(QRCode.this, "Erro ao cadastrar nota fiscal!", Toast.LENGTH_SHORT).show();
-                    }
-                });
-
-
-
-                System.out.println(notaFiscal.toString());
 
 
             } catch (IOException e) {

@@ -14,6 +14,7 @@ import android.widget.Button;
 import com.example.marketlist.adapters.Adapter;
 import com.example.marketlist.R;
 import com.example.marketlist.fragments.ListaFragment;
+import com.example.marketlist.model.ItemComprado;
 import com.example.marketlist.model.ListaProvisoria;
 
 public class ListaMercado extends AppCompatActivity implements Adapter.ListaProvisoriaListener {
@@ -28,11 +29,10 @@ public class ListaMercado extends AppCompatActivity implements Adapter.ListaProv
     }
 
     @Override
-    public void onClickItem(ListaProvisoria listaProvisoria) {
+    public void onClickItem(ItemComprado itemComprado) {
         Intent intent = new Intent(this, AlteraItemCompra.class);
-        intent.putExtra("item", listaProvisoria);
+        intent.putExtra("item", itemComprado);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        Log.d("onclickListaMercado", String.valueOf(listaProvisoria));
         this.startActivity(intent);
 
     }

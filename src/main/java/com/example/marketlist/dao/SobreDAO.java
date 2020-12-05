@@ -1,6 +1,7 @@
 package com.example.marketlist.dao;
 
 import androidx.room.Dao;
+import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
 
@@ -16,6 +17,9 @@ public interface SobreDAO {
 
     @Insert(onConflict = REPLACE)
     public void insert(Sobre sobre);
+
+    @Delete
+    public void deleteSobre(Sobre sobre);
 
 
 

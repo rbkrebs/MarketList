@@ -47,7 +47,9 @@ public class MainActivity extends AppCompatActivity  {
                 sobre.setMensagem("Sou um técnico de laboratório em transição de carreira.");
                 sobre.setGithub("https://github.com/rbkrebs/MarketList");
                 sobre.setLinkedin("https://www.linkedin.com/in/romulo-krebs/");
+
                 if (sobreDao.getSobre() == null){
+
                     sobreDao.insert(sobre);
                     return sobre.getId();
                 }
