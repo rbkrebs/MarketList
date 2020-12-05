@@ -4,21 +4,23 @@
 
 ## Overview
 
-MarketList is an idea :bulb: to simplify the way you manage :memo: your purchases everytime you go to supermarket.
+MarketList is an idea :bulb: to simplify the way you manage :memo: your purchases everytime you go to supermarket. Save everything you buy just reading the QRcode of the receipt. 
+
+
+:warning: :warning: It works only in Brazil <span>&#x1f1e7;&#x1f1f7;</span> :warning::warning:
 
 
 ## Status
 
-:warning:
 :construction: Under construction :construction:
 
-##Features
+## Features
 
 - [x] Capture QRCode
 - [x] List itens
-- [x] Authenthication with Firebase :fire:
-- [] Update itens
-- []
+- [x] Authentication with Firebase :fire:
+- [ ] Update itens
+- [ ] :man_shrugging:
 
 
 
