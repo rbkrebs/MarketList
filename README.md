@@ -1,6 +1,6 @@
 # MarketList
 
-![Marketlist logo](Markelist.png)
+![Marketlist logo](assets/Markelist.png)
 
 ##Overview
 
